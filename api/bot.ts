@@ -10,7 +10,6 @@ const dbUri = process.env.db;
 import HadithModel from "./models/hadithSchema";
 import seed from "./seed";
 import { randomInt } from "crypto";
-import { Request, Response } from "express";
 
 // Create an instance of the `Bot` class and pass your bot token to it.
 
