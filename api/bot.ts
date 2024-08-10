@@ -87,7 +87,15 @@ bot.on("message", (ctx) => {
 
 // Start the bot.
 bot.start();
+const app = require("express");
+const PORT = process.env.PORT;
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
+app.listen(PORT || 3000, () => {
+  console.log(`Example app listening on port ${PORT || 3000}`);
+});
 export default webhookCallback(bot, "std/http");
 export const config = {
   runtime: "edge",
