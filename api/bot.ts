@@ -10,6 +10,7 @@ const dbUri = process.env.db;
 import HadithModel from "./models/hadithSchema";
 import seed from "./seed";
 import { randomInt } from "crypto";
+import { Request, Response } from "express";
 
 // Create an instance of the `Bot` class and pass your bot token to it.
 
@@ -87,10 +88,13 @@ bot.on("message", (ctx) => {
 
 // Start the bot.
 bot.start();
+const express = require("express");
 const app = require("express");
 const PORT = process.env.PORT;
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+
+app.use(express.json());
+app.get("/", (req: any, res: any) => {
+  res.json("Hello World!");
 });
 
 app.listen(PORT || 3000, () => {
